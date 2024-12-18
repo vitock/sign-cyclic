@@ -1,0 +1,46 @@
+{
+	"author": "",
+	"description": "",
+	"homepage": "https://github.com/vitock/sign#readme",
+	"license": "ISC",
+	"main": "index.js",
+	"name": "sign",
+	"version": "1.0.0",
+	"bugs": {
+		"url": "https://github.com/vitock/sign/issues"
+	},
+	"dependencies": {
+		"ansi-to-html": "^0.7.2",
+		"asciify-image": "^0.1.10",
+		"axios": "^0.27.2",
+		"blake2b": "^2.1.4",
+		"body-parser": "^1.19.0",
+		"crypto-js": "^3.3.0",
+		"express": "^4.17.1",
+		"gulp": "^4.0.2",
+		"gulp-terser": "^2.1.0",
+		"gulp-typescript": "^6.0.0-alpha.1",
+		"pg": "^8.8.0",
+		"socks-proxy-agent": "^5.0.0",
+		"typescript": "^5.5.4"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vitock/sign.git"
+	},
+	"scripts": {
+		"release": "gulp release ",
+		"build": "(npm list  pg > config/pg.txt) && (git log --pretty='format:%h | %cd ' -1 > config/buildtime.txt )  && (( node node_modules/gulp/bin/gulp.js release) && (echo `env TZ=UTC-8 date +'%Y-%m-%d %H:%M:%S'` > config/pktime.txt ))",
+		"start": "node dist/index.js",
+		"test": "node node_modules/gulp/bin/gulp.js  &&  node dist/index.js ",
+		"test1": "node node_modules/gulp/bin/gulp.js &&  open http://127.0.0.1:3001/;  node dist/index.js "
+		 
+	},
+	"engines": {
+		"node": "16"
+	},
+	"devDependencies": {
+		"@types/express": "^4.17.14",
+		"@types/node": "^18.7.18"
+	}
+}
